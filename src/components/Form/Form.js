@@ -33,7 +33,9 @@ class Form extends React.Component {
                     name="task_description"
                     value={this.state.task_description}
                 />
-                <Button value="Wyślij"/>
+                <Button 
+                    value="Wyślij"
+                />
             </form>
         )
     }
