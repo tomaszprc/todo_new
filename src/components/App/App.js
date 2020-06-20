@@ -30,10 +30,15 @@ class App extends React.Component {
     ]
   }
 
+  handleFormSubmit = (e) => {
+    e.preventDefault();
+    console.log("Form submit!")
+  }
+
   render() {
     return (
       <div className="container m-0 m-auto">
-        <Form/>
+        <Form submit={this.handleFormSubmit}/>
         <ListWrapper tasks={this.state.tasks}/>
       </div>
     )
