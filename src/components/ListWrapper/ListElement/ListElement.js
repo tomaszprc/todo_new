@@ -16,6 +16,10 @@ const ListElement = (props) => (
             value="Edytuj"
             class="ml-5"
         />
+        <Button 
+            value="Zakończ"
+            class="ml-5"
+        />
     </div>
 )
 
