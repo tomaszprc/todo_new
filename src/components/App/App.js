@@ -31,9 +31,9 @@ class App extends React.Component {
 
   render() {
     return (
-      <>
+      <div className="container m-0 m-auto">
         <ListWrapper tasks={this.state.tasks}/>
-      </>
+      </div>
     )
   }
 }
