@@ -16,10 +16,14 @@ const ListElement = (props) => (
             value="Edytuj"
             class="ml-5"
         />
-        <Button 
-            value="Zakończ"
-            class="ml-5"
-        />
+        {props.active && 
+            <Button 
+                id={props.id}
+                value="Zakończ"
+                class="ml-5"
+                click={props.finishTask}
+            />
+        }
     </div>
 )
 

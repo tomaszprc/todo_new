@@ -42,7 +42,8 @@ class App extends React.Component {
     let task = {
       id: this.task_count,
       title: e.target.task_name.value,
-      description: e.target.task_description.value
+      description: e.target.task_description.value,
+      active: true
     }
 
     this.task_count++;
@@ -60,11 +61,28 @@ class App extends React.Component {
     });
   }
 
+  handleFinishTask = (e) => {
+    e.preventDefault();
+
+    let tasks = this.state.tasks;
+
+    tasks.forEach(task => {
+      if (task.id === parseInt(e.target.id)) 
+      {
+        task.active = false;
+      }
+    })
+
+    this.setState({
+      tasks: tasks
+    })
+  }
+
   render() {
     return (
       <div className="container m-0 m-auto">
         <Form submit={this.handleAddTask}/>
-        <ListWrapper removeTask={this.handleRemoveTask} tasks={this.state.tasks}/>
+        <ListWrapper finishTask={this.handleFinishTask} removeTask={this.handleRemoveTask} tasks={this.state.tasks}/>
       </div>
     )
   }

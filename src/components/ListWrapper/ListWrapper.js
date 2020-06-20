@@ -11,9 +11,11 @@ const ListWrapper = (props) => {
         <ListElement 
             key={task.id} 
             id={task.id}
+            active={task.active}
             title={task.title} 
             description={task.description}
             removeTask={props.removeTask}
+            finishTask={props.finishTask}
         />
     ));
 
@@ -21,6 +23,7 @@ const ListWrapper = (props) => {
         <ListElement 
             key={task.id} 
             id={task.id}
+            active={task.active}
             title={task.title} 
             description={task.description}
             removeTask={props.removeTask}
