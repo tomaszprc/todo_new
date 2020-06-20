@@ -1,1 +1,6 @@
 @import './modules/css/tailwind.generated.css';
+
+.top-half {
+    top: 50%;
+    transform: translateY(-50%);
+}
