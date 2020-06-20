@@ -8,7 +8,9 @@ const ListElement = (props) => (
             <p>{props.description}</p>
         </div>
         <Button 
+            id={props.id}
             value="Usuń"
+            click={props.removeTask}
         />
         <Button 
             value="Edytuj"

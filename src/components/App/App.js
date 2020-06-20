@@ -5,25 +5,27 @@ import Form from '../Form/Form';
 
 class App extends React.Component {
 
+  task_count = 5;
+
   state = {
     tasks: [
       {
-        id : "1",
+        id : 1,
         title: "Zadanie numer 1",
         description: "Treść zadania numer 1"
       },
       {
-        id : "2",
+        id : 2,
         title: "Zadanie numer 2",
         description: "Treść zadania numer 2"
       },
       {
-        id : "3",
+        id : 3,
         title: "Zadanie numer 3",
         description: "Treść zadania numer 3"
       },
       {
-        id : "4",
+        id : 4,
         title: "Zadanie numer 4",
         description: "Treść zadania numer 4"
       },
@@ -34,22 +36,31 @@ class App extends React.Component {
     e.preventDefault();
 
     let task = {
-      id: this.state.tasks.length + 1,
+      id: this.task_count,
       title: e.target.task_name.value,
       description: e.target.task_description.value
     }
 
+    this.task_count++;
+
     this.setState({
       tasks: [...this.state.tasks, task],
     });
-    
+  }
+
+  handleRemoveTask = (e) => {
+    e.preventDefault();
+
+    this.setState({
+      tasks: this.state.tasks.filter(task => task.id !== parseInt(e.target.id))
+    });
   }
 
   render() {
     return (
       <div className="container m-0 m-auto">
         <Form submit={this.handleAddTask}/>
-        <ListWrapper tasks={this.state.tasks}/>
+        <ListWrapper removeTask={this.handleRemoveTask} tasks={this.state.tasks}/>
       </div>
     )
   }

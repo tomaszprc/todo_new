@@ -6,8 +6,10 @@ const ListWrapper = (props) => {
     let tasks = props.tasks.map( task => (
         <ListElement 
             key={task.id} 
+            id={task.id}
             title={task.title} 
             description={task.description}
+            removeTask={props.removeTask}
         />
     ))
 
