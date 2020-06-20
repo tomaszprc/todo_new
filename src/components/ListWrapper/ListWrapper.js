@@ -12,7 +12,7 @@ const ListWrapper = (props) => {
     ))
 
     return (
-        <div>
+        <div className="text-center">
             {tasks}
         </div>
     )
