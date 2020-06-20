@@ -12,22 +12,26 @@ class App extends React.Component {
       {
         id : 1,
         title: "Zadanie numer 1",
-        description: "Treść zadania numer 1"
+        description: "Treść zadania numer 1",
+        active: true
       },
       {
         id : 2,
         title: "Zadanie numer 2",
-        description: "Treść zadania numer 2"
+        description: "Treść zadania numer 2",
+        active: false
       },
       {
         id : 3,
         title: "Zadanie numer 3",
-        description: "Treść zadania numer 3"
+        description: "Treść zadania numer 3",
+        active: true
       },
       {
         id : 4,
         title: "Zadanie numer 4",
-        description: "Treść zadania numer 4"
+        description: "Treść zadania numer 4",
+        active: true
       },
     ]
   }
