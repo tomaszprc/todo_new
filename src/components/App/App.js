@@ -30,15 +30,25 @@ class App extends React.Component {
     ]
   }
 
-  handleFormSubmit = (e) => {
+  handleAddTask = (e) => {
     e.preventDefault();
-    console.log("Form submit!")
+
+    let task = {
+      id: this.state.tasks.length + 1,
+      title: e.target.task_name.value,
+      description: e.target.task_description.value
+    }
+
+    this.setState({
+      tasks: [...this.state.tasks, task],
+    });
+    
   }
 
   render() {
     return (
       <div className="container m-0 m-auto">
-        <Form submit={this.handleFormSubmit}/>
+        <Form submit={this.handleAddTask}/>
         <ListWrapper tasks={this.state.tasks}/>
       </div>
     )
