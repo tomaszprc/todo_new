@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import ListWrapper from '../ListWrapper/ListWrapper';
+import Form from '../Form/Form';
 
 class App extends React.Component {
 
@@ -32,6 +33,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="container m-0 m-auto">
+        <Form/>
         <ListWrapper tasks={this.state.tasks}/>
       </div>
     )
