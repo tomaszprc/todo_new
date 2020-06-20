@@ -1,12 +1,14 @@
 import React from 'react';
+import ListElement from './ListElement/ListElement';
 
 const ListWrapper = (props) => {
 
     let tasks = props.tasks.map( task => (
-        <div key={task.id}>
-            <p>{task.title}</p>
-            <p>{task.description}</p>
-        </div>
+        <ListElement 
+            key={task.id} 
+            title={task.title} 
+            description={task.description}
+        />
     ))
 
     return (
@@ -14,7 +16,6 @@ const ListWrapper = (props) => {
             {tasks}
         </div>
     )
-
 }
 
 export default ListWrapper;
