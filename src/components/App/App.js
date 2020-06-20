@@ -53,7 +53,7 @@ class App extends React.Component {
     this.task_count++;
 
     this.setState({
-      tasks: [...this.state.tasks, task],
+      tasks: [...this.state.tasks, task]
     });
   }
 
