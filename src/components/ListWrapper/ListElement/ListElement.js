@@ -14,8 +14,10 @@ const ListElement = (props) => (
             click={props.removeTask}
         />
         <Button 
+            id={props.id}
             value="Edytuj"
             class="ml-5"
+            click={props.editTask}
         />
         {props.active && 
             <Button 

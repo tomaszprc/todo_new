@@ -16,6 +16,7 @@ const ListWrapper = (props) => {
             description={task.description}
             removeTask={props.removeTask}
             finishTask={props.finishTask}
+            editTask={props.editTask}
         />
     ));
 

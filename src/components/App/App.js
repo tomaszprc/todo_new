@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import ListWrapper from '../ListWrapper/ListWrapper';
 import Form from '../Form/Form';
+import Modal from '../Modal/Modal';
 
 class App extends React.Component {
 
@@ -33,7 +34,10 @@ class App extends React.Component {
         description: "Treść zadania numer 4",
         active: true
       },
-    ]
+    ],
+    openModal: false,
+    task_name: '',
+    task_description: ''
   }
 
   handleAddTask = (e) => {
@@ -78,11 +82,63 @@ class App extends React.Component {
     })
   }
 
+  handleEditTask = (e) => {
+    e.preventDefault();
+    let tasks = this.state.tasks;
+
+    tasks.forEach( task=> {
+      if(task.id === parseInt(e.target.id))
+      {
+        this.setState({
+          task_name: task.title,
+          task_description: task.description,
+          task_id: task.id,
+          openModal: true
+        })
+      }
+    })
+  }
+
+  handleEditButton = (e) => {
+    e.preventDefault();
+    let taskId = parseInt(e.target.submit_button.id);
+    let tasks = this.state.tasks;
+
+    tasks.forEach( task => {
+      if (task.id === taskId) 
+      {
+        task.title = e.target.task_name.value;
+        task.description = e.target.task_description.value
+      }
+    })
+
+    this.setState({
+      tasks: tasks,
+      openModal: false
+    })
+    
+  }
+
   render() {
     return (
       <div className="container m-0 m-auto">
-        <Form submit={this.handleAddTask}/>
-        <ListWrapper finishTask={this.handleFinishTask} removeTask={this.handleRemoveTask} tasks={this.state.tasks}/>
+        { this.state.openModal && 
+          <Modal 
+            taskId={this.state.task_id}
+            taskName={this.state.task_name}
+            taskDescription={this.state.task_description}
+            submit={this.handleEditButton}
+          /> 
+        }
+        <Form 
+          submit={this.handleAddTask} 
+        />
+        <ListWrapper 
+          editTask={this.handleEditTask}
+          finishTask={this.handleFinishTask} 
+          removeTask={this.handleRemoveTask} 
+          tasks={this.state.tasks}
+        />
       </div>
     )
   }
