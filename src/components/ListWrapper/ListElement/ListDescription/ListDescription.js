@@ -1,9 +1,9 @@
 import React from 'react';
 
-const ListDescription = (props) => (
+const ListDescription = ({title, description}) => (
     <div className="mr-5">
-        <p className="text-lg font-bold">{props.title}</p>
-        <p>{props.description}</p>
+        <p className="text-lg font-bold">{title}</p>
+        <p>{description}</p>
     </div>
 );
 

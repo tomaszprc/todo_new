@@ -2,10 +2,10 @@ import React from 'react';
 import ListElement from './ListElement/ListElement';
 import Header from '../Header/Header';
 
-const ListWrapper = (props) => {
+const ListWrapper = ({tasks, removeTask, finishTask, editTask}) => {
 
-    const tasksActive = props.tasks.filter(task => task.active);
-    const tasksDone = props.tasks.filter(task => !task.active);
+    const tasksActive = tasks.filter(task => task.active);
+    const tasksDone = tasks.filter(task => !task.active);
 
     const tasksActiveList = tasksActive.map( task => (
         <ListElement 
@@ -14,9 +14,9 @@ const ListWrapper = (props) => {
             active={task.active}
             title={task.title} 
             description={task.description}
-            removeTask={props.removeTask}
-            finishTask={props.finishTask}
-            editTask={props.editTask}
+            removeTask={removeTask}
+            finishTask={finishTask}
+            editTask={editTask}
         />
     ));
 
@@ -27,7 +27,7 @@ const ListWrapper = (props) => {
             active={task.active}
             title={task.title} 
             description={task.description}
-            removeTask={props.removeTask}
+            removeTask={removeTask}
         />
     ));
    

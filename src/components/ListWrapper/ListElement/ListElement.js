@@ -2,29 +2,29 @@ import React from 'react';
 import Button from '../../Button/Button';
 import ListDescription from './ListDescription/ListDescription';
 
-const ListElement = (props) => (
+const ListElement = ({title, description, id, active, removeTask, editTask, finishTask}) => (
     <div className="flex w-1/2 justify-center m-0 m-auto bg-yellow-400 border-2 border-white">
         <ListDescription 
-            title={props.title}
-            description={props.description}
+            title={title}
+            description={description}
         />
         <Button 
-            id={props.id}
+            id={id}
             value="Usuń"
-            click={props.removeTask}
+            click={removeTask}
         />
         <Button 
-            id={props.id}
+            id={id}
             value="Edytuj"
-            class="ml-5"
-            click={props.editTask}
+            classValue="ml-5"
+            click={editTask}
         />
-        {props.active && 
+        {active && 
             <Button 
-                id={props.id}
+                id={id}
                 value="Zakończ"
-                class="ml-5"
-                click={props.finishTask}
+                classValue="ml-5"
+                click={finishTask}
             />
         }
     </div>
