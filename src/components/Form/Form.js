@@ -5,9 +5,9 @@ import Button from '../Button/Button';
 class Form extends React.Component {
 
     state = {
-        task_name: this.props.taskName,
-        task_description: this.props.taskDescription,
-        task_id: this.props.taskId
+        task_name: this.props.taskName ? this.props.taskName : '',
+        task_description: this.props.taskDescription ?  this.props.taskDescription : '',
+        task_id: this.props.taskId ? this.props.taskId : ''
     }
     
     handleInput = (e) => {
